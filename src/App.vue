@@ -1,10 +1,12 @@
 <script setup>
-import Todo from '@/components/TableGeneric.vue'
+import TodoList from '@/components/TodoList.vue'
 
 </script>
 
 <template>
-  <Todo />
+  <div class="container mx-auto">
+    <TodoList />
+  </div>
 
 </template>
 
