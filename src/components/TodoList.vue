@@ -373,6 +373,9 @@
 
 <script setup>
 import { ref, reactive, computed, onMounted, nextTick } from 'vue';
+import { Modal } from 'flowbite';
+
+
 
 const pessoa = reactive({
     nome: '',
@@ -393,7 +396,7 @@ const quantidadeSelecionados = ref(0)
 const listaCategorias = ref([])
 const checkedCategorias = ref([])
 const isSalvando = ref(false);
-
+const modal = ref('');
 
 function salvar() {
     isSalvando.value = true;
@@ -410,6 +413,8 @@ function salvar() {
             console.error(err);
         } finally {
             isSalvando.value = false;
+            modal.value = new Modal(document.getElementById('crud-modal'));
+            modal.value.hide()
         }
     });
 }
@@ -530,6 +535,7 @@ const buscarCategoria = computed(() => {
 
 onMounted(() => {
     popularLista();
+
 })
 
 </script>
